@@ -1,0 +1,724 @@
+@import "public";
+@import "main";
+
+$headH:.8rem;
+.headD{height: $headH}
+.head{position: fixed; z-index: 50; left: 0; top: 0; width: 100%; background: #fff; @include shadow(0 0 .1rem rgba(0, 0, 0, .1));
+  .wal{min-height: $headH; position: relative}
+  a.logo{display: block; background: url("../image/logo.png") center no-repeat; background-size: 100%; width: 1.88rem; height: 100%; @include absolute($l:0, $t:0)}
+  .tel{background: url("../image/nimg22.png") left center no-repeat; background-size: .22rem; padding-left: .32rem; line-height: $headH; @include absolute($t:0, $r:0); font-size: .16rem; font-weight: bold; color: $color; letter-spacing: .01rem}
+}
+.nav{@include absolute($t:0, $r:1.73rem);
+  ul{@extend .flexWrap}
+  a.name{display: block; height: $headH; line-height: $headH; font-size: .16rem; color: #666; position: relative; padding: 0 .27rem;
+    &:before{@include before(); left: 0; top: 0; width: 100%; height: 100%; background: url("../image/nav.jpg") center repeat-x; background-size: auto 100%; opacity: 0}
+    em{display: inline-block; position: relative}
+    &.on{color: $color; font-weight: bold;
+      &:before{opacity: 1}
+    }
+  }
+}
+@media screen and (min-width: 800px){
+  .nav{
+    .list{position: fixed; z-index: 45; left: 0; top: -$headH; width: 100%; background: rgba(255, 255, 255, .6); min-height: .55rem; opacity: 0; visibility: hidden;
+      dl{display: flex; display: -webkit-flex; justify-content: center; -webkit-justify-content: center}
+      dd{padding: 0 .25rem}
+      a{display: block; height: .55rem; line-height: .55rem; position: relative; font-size: .14rem; color: #666;
+        &:before{@include before(); left: 0; bottom: 0; width: 100%; height: .02rem; background: $color; opacity: 0}
+        &:hover{color: $color;
+          &:before{opacity: 1}
+        }
+      }
+    }
+    li:hover{
+      a.name{color: $color;
+        &:before{opacity: 1}
+      }
+      .list{top: $headH; opacity: 1; visibility: visible;
+        $time:0.5s;
+        transition:opacity $time ease;
+        -webkit-transition:opacity $time ease;
+        -moz-transition:opacity $time ease;
+        -o-transition:opacity $time ease;
+      }
+    }
+  }
+}
+
+.foot{background: url("../image/foot.jpg") center no-repeat; background-size: auto 100%; padding-top: 3.05rem; min-height: 5.55rem; color: #fff;
+  .wal{min-height: 2.5rem; position: relative; padding-left: 1.8rem}
+  .ewm{background: #fff; padding: .07rem; width: 1.5rem; @include radius(.05rem); @include absolute($l:0, $t:0)}
+  .tel{line-height: .6rem; font-size: .28rem; font-weight: bold; padding-left: .4rem; background: url("../image/nimg32.png") left center no-repeat; background-size: .32rem}
+  .list{width: 3.7rem;
+    ul{@extend .flexWrap}
+    li{width: 50%; @extend .flex; @extend .itemsCenter; height: .45rem; font-size: .16rem;
+      img{width: .2rem; margin-right: .08rem}
+    }
+    li:nth-child(1){width: 100%}
+  }
+  .content{@include absolute($t:.8rem, $r:0); text-align: right; font-size: .14rem; line-height: .32rem;
+    em{padding: 0 .14rem}
+  }
+  a.topA{display: block; width: .5rem; height: .5rem; background: rgba(0, 0, 0, .5) url("../image/nimg30.png") center no-repeat; background-size: .3rem; @include absolute($t:0, $r:0);
+    &:hover{background-color: $color}
+  }
+}
+.pageFoot{background-image: url("../image/foot2.jpg"); min-height: 2.7rem; padding-top: .6rem;
+  .wal{min-height: 2rem}
+  a.topA{border: #fff solid 1px; background-color: rgba(0, 0, 0, 0)}
+}
+
+/*index*/
+.indexFlash{width: 100%; overflow: hidden; position: relative;
+  li{height: 9rem; background: center no-repeat; background-size: cover;
+    .img{width: 8rem; @include absolute($l:50%, $t:1.85rem); margin-left: -4rem}
+  }
+  .dots{@include absolute($l:0, $b:3.1rem); width: 100%; @extend .flex; @extend .justifyCenter;
+    div{@extend .flex; @extend .justifyCenter; @include radius(.5rem); height: .4rem; background: rgba(0, 0, 0, .5)}
+    span{width: .48rem; height: .4rem; background: url("../image/img22.png") center no-repeat; background-size: .22rem; position: relative;
+      &:before{@include before(); top: 0; right: -.1rem; width: .2rem; height: 100%; background: url("../image/img20.png") center no-repeat; background-size: .2rem}
+      &:last-child:before{display: none}
+    }
+    .swiper-pagination-bullet-active{background-image: url("../image/img22on.png")}
+  }
+}
+
+.pageMore a{display: block; width: 1.2rem; height: .44rem; line-height: .44rem; text-align: center; background: $color; color: #fff; text-transform: uppercase; font-size: .16rem; @include radius(.5rem)}
+
+.indexPart1{min-height: 5.38rem; position: relative;
+  .bigImg{width: 6.7rem; overflow: hidden; @include radius(.1rem); @include absolute($l:0, $t:-1.75rem, $z:11); @include shadow(0 .18rem .4rem rgba(0, 0, 0, .1))}
+  .container{width: 6.7rem; min-height: 6.7rem; @include radius(.1rem); @include absolute($r:0, $t:-2.9rem); @include shadow(0 .14rem .3rem rgba(0, 0, 0, .08)); background: #fff; padding: .49rem .55rem 0 2rem;
+    .title{background: url("../image/img260.png") left top no-repeat; height: 1.38rem; padding: .44rem 0 0 .9rem; margin-left: -.9rem;
+      div{font-size: .14rem; color: #999; text-transform: uppercase}
+      h2{font-size: .36rem}
+    }
+    .content{min-height: 1.75rem; padding: .3rem 0; font-size: .14rem; line-height: .26rem; color: #666}
+    .msg{height: 1rem; background: url("../image/img410.png") center no-repeat; background-size: auto 1rem; @extend .flex; @extend .itemsCenter; @extend .justifyCenter; text-align: center; font-size: .14rem; line-height: .26rem; color: $color}
+    .list{
+      ul{@extend .flex; @extend .flexBetween}
+      li{text-align: center;
+        div{width: .5rem; margin: 0 auto; padding: .12rem 0 .1rem 0}
+        p{font-size: .14rem; line-height: .24rem; color: #666}
+      }
+    }
+    .pageMore{@include absolute($l:0, $b:-.22rem); width: 100%; padding: 0 .55rem 0 2rem;
+      a{margin: 0 auto}
+    }
+  }
+}
+
+.indexPart2{height: 7.8rem; position: relative; background: url("../image/img1259.png") center bottom no-repeat; background-size: 12.59rem; overflow: hidden;
+  &:before{@include before(); left: 0; top: .6rem; background: url("../image/img1920.png") center top no-repeat; background-size: 19.2rem; width: 100%; height: 4.5rem}
+  .img1{width: 5.86rem; @include absolute($l:.68rem, $t:1.3rem)}
+  .img2{width: 7.16rem; @include absolute($r:.12rem, $t:0)}
+  .yuan{position: absolute; left: 50%; top: 3.75rem; width: 20rem; height: 20rem; background: url("../image/img2000.png") center no-repeat; background-size: cover; margin-left: -10rem;
+    animation:indexPart2Yuan 60s infinite normal linear;
+    -webkit-animation:indexPart2Yuan 60s infinite normal linear;
+  }
+  .wal{position: relative; z-index: 11; padding-top: 1.48rem}
+  .title{height: 1.58rem; width: 2.28rem; background: url("../image/img228.png") center top no-repeat; background-size: 100%; text-align: right; padding: .2rem .25rem 0 0; margin: 0 auto;
+    div{font-size: .14rem; color: #999; text-transform: uppercase}
+    h2{font-size: .36rem}
+  }
+  .list{position: relative; min-height: 4rem;
+    li{position: absolute;
+      a{display: block; width: 1rem; height: 1rem;
+        .yezhi{@extend .transition; position: absolute; left: 0; top: 0; width: 100%; height: 100%;
+          &:before{@include before(); left: 0; $t:0; width: 100%; height: 100%; background: #8fccac; @include radiusLB(.3rem); @include radiusRT(.3rem)}
+        }
+        .img{position: relative; width: .5rem; left: .25rem; top: .25rem;
+          img:nth-child(2){@include absolute($l:0, $t:0); opacity: 0}
+        }
+        .name{@include absolute($l:-1rem, $t:-.5rem); opacity: 0; visibility: hidden; color: $color; font-size: .2rem; line-height: .32rem; @extend .transition}
+      }
+      a:hover{
+        .yezhi:before{background: $color}
+        .img{
+          img:nth-child(1){opacity: 0}
+          img:nth-child(2){opacity: 1}
+        }
+        .yezhi, .img img{@include scale(1.2)}
+        .name{opacity: 1; visibility: visible}
+      }
+    }
+    li.li_01{left: 0; top: 1.9rem}
+    li.li_02{left: 2.6rem; top: .8rem;
+      a .yezhi:before{@include rotate(22.5deg)}
+    }
+    li.li_03{left: 50%; top: .2rem; margin-left: -.5rem;
+      a .yezhi:before{@include rotate(45deg)}
+    }
+    li.li_04{right: 2.6rem; top: .8rem;
+      a .yezhi:before{@include rotate(67.5deg)}
+    }
+    li.li_05{right: 0; top: 1.9rem;
+      a .yezhi:before{@include rotate(90deg)}
+    }
+  }
+}
+@keyframes indexPart2Yuan {
+  from {transform: rotate(0)}
+  to {transform: rotate(360deg)}
+}
+@-webkit-keyframes indexPart2Yuan{
+  from {-webkit-transform: rotate(0)}
+  to {-webkit-transform: rotate(360deg)}
+}
+
+.indexPart3{min-height: 16.06rem; background: url("../image/img1920.jpg") center top no-repeat; background-size: 19.2rem}
+.indexPart3_01{position: relative; padding: 0 2.8rem 2.1rem 2.8rem;
+  .wal{min-height: 6.9rem; position: relative; padding-top: 1.9rem}
+  .title{@include absolute($r:0, $t:1.9rem); background: url("../image/img232.png") right center no-repeat; background-size: 2.32rem; width: 4rem; height: .9rem; text-align: right; padding: .24rem .58rem 0 0;
+    div{font-size: .14rem; color: #999; text-transform: uppercase; padding-right: .18rem}
+    h2{font-size: .36rem}
+  }
+  .list{margin-left: -.1rem; margin-right: -.1rem;
+    .list-wrapper{width: 100%; overflow: hidden; position: relative}
+    li{position: relative; padding: 0 .1rem}
+    .img{width: 7.8rem; position: relative; overflow: hidden; @include radiusRT(1.1rem); @include radiusLB(1.1rem);
+      a{display: block; height: 5rem; background: center no-repeat; background-size: cover}
+      img{display: none}
+    }
+    .box{width: 4rem; background: #5bb485; overflow: hidden; @include absolute($r:.1rem, $b:0); @include radiusLT(.55rem); @include radiusRB(.55rem);
+      .name a{display: block; text-align: center; color: #fff; font-size: .2rem; line-height: .6rem}
+      .content{background: #fff; @include radiusLT(.55rem); @include radiusRB(.55rem); font-size: .14rem; line-height: .24rem; color: #666; padding: .35rem .45rem; min-height: 2.6rem}
+      .pageMore{@include absolute($l:0, $b:.3rem); width: 100%;
+        a{margin: 0 auto}
+      }
+    }
+  }
+  .prev, .next{width: 2.6rem; overflow: hidden; background: #fff;
+    &:before{@include before(); top: .8rem; z-index: 11; width: .36rem; height: 1rem; background: rgba(0, 0, 0, .5) center no-repeat; background-size: .12rem; cursor: pointer;
+    }
+    &:hover:before{background-color: rgba(31, 153, 90, .8)}
+    .img{background: center no-repeat; background-size: cover; height: 2.6rem}
+    .name{font-size: .16rem; height: .6rem; line-height: .6rem; text-align: center; padding: 0 .15rem; @extend .ellipsis}
+  }
+  .prev{@include absolute($l:0, $b:2.1rem); @include radiusLB(.55rem); @include radiusRT(.55rem);
+    &:before{background-image: url("../image/nimg12_1.png"); left: 0; @include radiusRT(.05rem); @include radiusRB(.05rem)}
+    .img{@include radiusLB(.55rem)}
+  }
+  .next{@include absolute($r:0, $b:2.1rem); @include radiusLT(.55rem); @include radiusRB(.55rem);
+    &:before{background-image: url("../image/nimg12_2.png"); right: 0; @include radiusLT(.05rem); @include radiusLB(.05rem)}
+    .img{@include radiusRB(.55rem)}
+  }
+}
+
+.indexPart3_02, .indexPart4{
+  .title{background: url("../image/img228.png") left top no-repeat; background-size: 100%; width: 2.28rem; text-align: center; height: 1.2rem; padding: .23rem 0 0 .38rem;
+    div{font-size: .14rem; color: #999; text-transform: uppercase}
+    h2{font-size: .36rem}
+  }
+}
+
+.indexPart3_02{min-height: 7rem; position: relative;
+  .pageMore{height: .82rem}
+  .arrow{width: 4.3rem; height: .56rem; @extend .flex; justify-content: flex-end; -webkit-justify-content: flex-end;
+    a{margin-left: .2rem; width: .31rem; height: .16rem; background: center no-repeat; background-size: cover;
+      &.prev{background-image: url("../image/nimg31_1.png");
+        &:hover{background-image: url("../image/nimg31_1on.png")}
+      }
+      &.next{background-image: url("../image/nimg31_2.png");
+        &:hover{background-image: url("../image/nimg31_2on.png")}
+      }
+    }
+  }
+  .list{width: 4.3rem;
+    ul{@extend .flexWrap; margin-left: -.2rem}
+    li{width: 50%; padding: 0 0 .2rem .2rem}
+    .box{position: relative; width: 100%; overflow: hidden; @include radius(.04rem); display: block;
+      .name{@include absolute($l:0, $t:0); width: 100%; height: 100%; @extend .flex; @extend .itemsCenter; @extend .justifyCenter; color: #fff; opacity: 0; font-size: .14rem; line-height: .24rem; text-align: center; background: rgba(31, 153, 90, .7); @extend .transition;
+        &:before{@include before(); left: 3%; top: 4%; width: 94%; height: 92%; box-sizing: border-box; border: #fff solid 1px; @include radius(.04rem); @include radiusRT(.36rem); @include radiusLB(.36rem)}
+      }
+    }
+    li.on .box{@include radiusRT(.36rem); @include radiusLB(.36rem);
+      .name{opacity: 1}
+    }
+  }
+  .bigImg{width: 7.5rem; overflow: hidden; @include absolute($t:0, $r:0); padding-bottom: .5rem; background: url("../image/img625.png") right bottom no-repeat; background-size: 6.25rem;
+    li img{@include radius(.08rem); @include radiusLT(.9rem); @include radiusRB(.9rem)}
+  }
+}
+
+.indexPart4{position: relative; min-height: 6.2rem;
+  .title{height: 1.4rem}
+  .btn{@include absolute($l:2.88rem, $t:0);
+    ul{@extend .flex}
+    li{padding-right: .3rem}
+    a{display: block; padding: .48rem 0 0 0; font-size: .16rem; color: #666; height: .9rem; position: relative;
+      &:before{@include before(); left: 0; bottom: 0; width: 100%; opacity: 0; height: .13rem; background: url("../image/img66.png") center no-repeat; background-size: auto 100%}
+      &:hover{color: $color}
+      &.on{font-weight: bold; color: $color;
+        &:before{opacity: 1}
+      }
+    }
+  }
+  .more{display: block; @include absolute($t:.47rem, $r:0); @include radius(.5rem); font-size: .16rem; text-transform: uppercase; color: #999; border: #999 solid 1px; width: 1.2rem; height: .44rem; line-height: .42rem; text-align: center;
+    &:hover{background: $color; border-color: $color; color: #fff}
+  }
+  .list{position: relative; margin-left: -.3rem; margin-right: -.3rem}
+  a.arrow{display: block; width: .16rem; height: 100%; background: center no-repeat; background-size: 100%; @include absolute($t:0);
+    &.prev{left: -.2rem; background-image: url("../image/nimg16_1.png")}
+    &.next{right: -.2rem; background-image: url("../image/nimg16_2.png")}
+  }
+  .list-wrapper{width: 100%; overflow: hidden; position: relative;
+    li{padding: 0 .3rem}
+    .box2{@extend .flexColumn;
+      .img a{height: 2.4rem; display: block; background: center no-repeat; background-size: cover; position: relative; @include radius(.05rem); overflow: hidden;
+        &:before{@include before(); left: 0; top: 0; width: 100%; height: 100%; background: rgba(31, 153, 90, .5) url("../image/img50.png") center no-repeat; background-size: .5rem; opacity: 0}
+        &:after{@include before(); left: 2%; top: 3%; width: 96%; height: 94%; box-sizing: border-box; border: rgba(255, 255, 255, .5) solid 2px; @include radius(.05rem); @include radiusLT(.5rem); @include radiusRB(.5rem); opacity: 0; @extend .transition}
+      }
+      .time{@include absolute($l:0, $t:50%); width: 100%; height: 1rem; margin-top: -.5rem; padding-left: .5rem; @extend .flex; @extend .itemsCenter; color: $color; @extend .transition;
+        em{font-size: .16rem; position: relative; top: .15rem}
+        b{font-size: .6rem; text-shadow: .03rem .03rem 0 rgba(255, 255, 255, .4); font-family: 'IMPACT'; font-weight: 100}
+      }
+      .box{height: 2.4rem; @extend .flexColumn; @extend .justifyCenter; padding: .3rem .2rem 0 .2rem;
+        .name{position: relative; padding-bottom: .3rem;
+          &:before{@include before(); left: 0; bottom: .15rem; width: .3rem; height: .02rem; background: $color}
+          a{display: block; font-size: .18rem; font-weight: 600; line-height: .3rem; max-height: .6rem; overflow: hidden}
+        }
+        .content{color: #666; font-size: .14rem; line-height: .26rem; height: .52rem; overflow: hidden; @extend .transition}
+      }
+    }
+    li:nth-child(odd) .box2{
+      .time em{top: -.15rem}
+      .box{order: -1; padding: 0 .2rem .3rem .2rem}
+    }
+    li .box2:hover{
+      .img a{@include radiusLT(.5rem); @include radiusRB(.5rem);
+        &:before, &:after{opacity: 1}
+      }
+      .time{color: #29cc78}
+      .box{
+        .name a{color: $color}
+        .content{color: #1f995a}
+      }
+    }
+  }
+}
+
+/*pgae*/
+.pageBanner{height: 4rem; background: center no-repeat; background-size: cover; position: relative;
+  .title{background: url("../image/img420.png") center no-repeat; background-size: cover; width: 4.2rem; height: 2.06rem; @include absolute($l:50%, $t:.97rem); margin-left: -2.1rem; color: #fff; text-align: right; padding-right: 1.08rem;
+    div{text-transform: uppercase; font-size: .24rem; padding: .4rem 0 .3rem 0}
+    h2{font-size: .48rem}
+  }
+  .title-2{background-image: url("../image/img561.png"); width: 5.61rem; margin-left: -2.85rem}
+}
+
+.about_01{@extend .flexWrap; @extend .flexBetween; padding: 1rem 0;
+  .bigImg{width: 6rem; overflow: hidden; position: relative; @include radius(.1rem); @include shadow(0 .18rem .4rem rgba(0, 0, 0, .1))}
+  .col{width: 5.41rem;
+    .title{background: url("../image/img228_1.png") left top no-repeat; height: 1.16rem; padding: .2rem 0 0 .57rem;
+      div{font-size: .14rem; color: #999; text-transform: uppercase; padding-left: .16rem}
+      h2{font-size: .36rem}
+    }
+    .content{min-height: 2.45rem; padding: .3rem 0; font-size: .14rem; line-height: .26rem; color: #666; text-align: justify}
+    .msg{height: 1rem; background: url("../image/img541.png") center no-repeat; background-size: auto 1rem; @extend .flex; @extend .itemsCenter; @extend .justifyCenter; text-align: center; font-size: .14rem; line-height: .26rem; color: $color}
+    .list{
+      ul{@extend .flex; @extend .flexBetween}
+      li{text-align: center;
+        div{width: .5rem; margin: 0 auto; padding: .12rem 0 .1rem 0}
+        p{font-size: .14rem; line-height: .24rem; color: #666}
+      }
+    }
+  }
+}
+
+.pageTitle{background: url("../image/img228.png") left top no-repeat; background-size: 100%; width: 2.28rem; height: 1.3rem; padding: .2rem 0 0 .57rem;
+  div{font-size: .14rem; color: #999; text-transform: uppercase; padding-left: .16rem; margin-right: -.5rem}
+  h2{font-size: .36rem}
+}
+
+.about_02{background: url("../image/about_02.jpg") center no-repeat; background-size: cover; min-height: 7rem; padding: 1rem 0;
+  .pageTitle{margin: 0 auto}
+}
+
+.about_03{padding: 1rem .4rem 1.4rem 0; @extend .flexWrap; @extend .itemsCenter; @extend .flexBetween;
+  .col{width: 4.5rem}
+  h2.name{padding: .1rem 0 .4rem 0; font-size: .24rem;
+    img{width: .42rem; margin-right: .15rem}
+  }
+  .content{@extend .flexWrap; @extend .flexBetween; font-size: .14rem; line-height: .3rem; color: #666; text-align: justify;
+    p{width: 1.95rem}
+  }
+  .img{width: 5.6rem; position: relative;
+    img{position: relative}
+    &:before{@include before(); right: -.4rem; bottom: -.4rem; width: 100%; height: 100%; background: #e8f5ee}
+  }
+}
+
+.about_04{background: url("../image/img1920_2.jpg") center no-repeat; background-size: cover;
+  .wal{min-height: 6.97rem; position: relative}
+  .title{@include absolute($l:0, $t:0); width: 100%; height: 100%; color: #fff; text-align: center; @extend .flex; @extend .itemsCenter; @extend .justifyCenter; font-size: .36rem; line-height: .6rem; background: url("../image/img520.png") center no-repeat; background-size: 5.2rem}
+  .list{
+    li{position: absolute;
+      div{width: 3.25rem; height: .8rem; line-height: .8rem; position: relative; background: #5bb484; color: #fff; @include radius(.09rem); font-size: .24rem; padding-left: .86rem;
+        &:before{@include before(); left: -.08rem; top: 50%; width: .2rem; height: .2rem; margin-top: -.1rem; background: #5bb484; @include rotate(45deg)}
+        img{@include absolute($l:.26rem, $t:50%); margin-top: -.2rem; width: .4rem}
+      }
+      &:nth-child(odd) div{text-align: right; padding: 0 .86rem 0 0;
+        &:before{left: auto; right: -.08rem}
+        img{left: auto; right: .26rem}
+      }
+    }
+    .li_01{left: .5rem; top: 1.32rem}
+    .li_02{right: .5rem; top: 1.32rem}
+    .li_03{left: 0; top: 2.9rem}
+    .li_04{right: 0; top: 2.9rem}
+    .li_05{left: .5rem; top: 4.6rem}
+    .li_06{right: .5rem; top: 4.6rem}
+  }
+}
+
+.about_05{padding: 1rem 0; position: relative;
+  .pageTitle{height: 1.5rem}
+  .arrow{@include absolute($t:1.55rem, $r:0); @extend .flex; @extend .itemsCenter; height: .5rem;
+    a{width: .31rem; height: .26rem; background: center no-repeat; background-size: 100%;
+      &.prev{background-image: url("../image/nimg31_1.png");
+        &:hover{background-image: url("../image/nimg31_1on.png")}
+      }
+      &.next{background-image: url("../image/nimg31_2.png");
+        &:hover{background-image: url("../image/nimg31_2on.png")}
+      }
+    }
+    div{width: .9rem; text-align: center; font-size: .3rem; color: #999;
+      em{color: $color}
+    }
+  }
+  .list{margin-left: -.3rem; margin-right: -.3rem}
+  .list-wrapper{width: 100%; overflow: hidden; position: relative;
+    li{padding: 0 .3rem; text-align: center}
+    .img{border: #eee solid 1px}
+    .name{line-height: .55rem; font-size: .14rem; color: #666}
+  }
+}
+
+.pageBg{background: #f4f3f3 url("../image/pagebg.jpg") center top no-repeat; background-size: 100%; min-height: 10rem}
+
+.business{padding: 1rem 0 .8rem 0;
+  li{padding: 0 0 .3rem .3rem; position: relative;
+    .num{font-size: .6rem; color: #999; font-family: 'IMPACT'; line-height: 1.4rem; @include absolute($l:0, $t:0); @extend .transition}
+    a{display: block; width: 100%; background: #fff; @include radius(.1rem); height: 1.4rem; position: relative; @include shadow(0 .32rem .98rem rgba(31, 153, 90, .16)); overflow: hidden;
+      .ico{width: .6rem; @include absolute($l:.9rem, $t:50%); margin-top: -.3rem}
+      .name{line-height: 1.4rem; text-align: center; font-size: .24rem; color: #666; position: relative; z-index: 11; @extend .transition}
+      .img{@include absolute($t:0, $r:0);
+        &:before{@include before(); left: 0; top: 0; width: 100%; height: 100%; background: url("../image/img335.png") center repeat-y; background-size: 100%}
+        img{height: 1.4rem; @include gray(100%)}
+      }
+    }
+  }
+  li:nth-child(even){padding: 0 .3rem .3rem 0;
+    .num{left: auto; right: 0}
+    a{
+      .ico{left: auto; right: .9rem}
+      .img{right: auto; left: 0;
+        &:before{@include rotate(180deg)}
+      }
+    }
+  }
+  li:hover{
+    .num{color: $color}
+    a{
+      .name{color: $color; font-weight: bold}
+      .img img{@include gray(0)}
+    }
+  }
+}
+
+.technology{padding: 1rem 0 .8rem 0; background: url("../image/img958.jpg") right bottom no-repeat; background-size: 9.58rem; min-height: 5rem;
+  ul{@extend .flexWrap; margin-left: -.6rem}
+  li{width: 50%; padding: 0 0 .55rem .6rem}
+  .box{position: relative;
+    .img{width: 100%; overflow: hidden; position: relative; @include radius(.08rem); @extend .transition;
+      .name a{display: block; font-size: .24rem; font-weight: bold; color: #fff; text-align: center; @include absolute($l:0, $b:0); background: rgba(31, 153, 90, .7); width: 100%; height: .96rem; line-height: .96rem; @extend .ellipsis}
+    }
+    .layer{@include absolute($l:0, $t:0); width: 100%; height: 100%; opacity: 0; @extend .transition; background: #62b78b; overflow: hidden; @include radius(.08rem); @include radiusRT(1rem); @include radiusLB(1rem); @include shadow(0 .24rem .65rem rgba(0, 0, 0, .18));
+      .name a{display: block; font-size: .24rem; font-weight: bold; color: #fff; text-align: center; height: .74rem; line-height: .74rem; @extend .ellipsis}
+      .content{background: #fff; position: absolute; left: 0; top: .74rem; width: 100%; height: 100%; font-size: .16rem; line-height: .27rem; color: #666; text-align: justify; padding: .4rem .5rem; @include radius(.08rem); @include radiusRT(1rem); @include radiusLB(1rem);
+        p{padding-bottom: .15rem}
+      }
+      .pageMore{@include absolute($l:0, $b:0); width: 100%; padding-bottom: .7rem; background: url("../image/img453.png") .9rem bottom no-repeat; background-size: 4.53rem;
+        a{margin: 0 auto}
+      }
+    }
+  }
+  .box:hover{
+    .img{opacity: 0; @include radiusRT(1rem); @include radiusLB(1rem)}
+    .layer{opacity: 1}
+  }
+}
+
+.pageNow{font-size: .16rem; color: #999; padding: .25rem 0 .3rem 0;
+  a{color: #999}
+  &.pageNow-2{padding: 1rem 0 .4rem 0}
+}
+.technologyImg{background: #f4f3f3; padding-bottom: .65rem;
+  h2.title{text-align: center; font-size: .24rem; padding-bottom: .25rem; color: $color}
+  .list{background: #fff; padding: .65rem 1.7rem 0 1.7rem; position: relative;
+    .dots{height: .65rem; @extend .flex; @extend .itemsCenter; @extend .justifyCenter;
+      span{margin: 0 .04rem; background: #8fccac; width: .1rem; height: .1rem; @include radius(.1rem); @extend .transition}
+      .swiper-pagination-bullet-active{background: $color; width: .58rem}
+    }
+    .arrow{display: block; width: .5rem; height: .5rem; @include radius(50%); background: #eee center no-repeat; background-size: .15rem; @include absolute($t:50%); margin-top: -.3rem;
+      &:hover{background-color: $color}
+      &.prev{left: .6rem; background-image: url("../image/nimg15_1.png");
+        &:hover{background-image: url("../image/nimg15_1on.png")}
+      }
+      &.next{right: .6rem; background-image: url("../image/nimg15_2.png");
+        &:hover{background-image: url("../image/nimg15_2on.png")}
+      }
+    }
+  }
+  .list-wrapper{width: 100%; overflow: hidden; position: relative;
+    li{text-align: center;
+      img{@include radius(.09rem)}
+    }
+  }
+}
+
+.technologyShow{padding: .3rem 0; min-height: 2.95rem;
+  h2.title{line-height: .7rem; font-size: .2rem; padding-left: .16rem; position: relative; color: $color;
+    &:before{@include before(); left: 0; top: 50%; width: .06rem; height: .22rem; margin-top: -.11rem; background: $color}
+  }
+  .content{font-size: .14rem; line-height: .24rem; color: #666; text-align: justify}
+}
+
+.pageNum2{min-height: 2.15rem; border-top: #ccc solid 1px; padding: .4rem 1.5rem .4rem 0; position: relative;
+  li{line-height: .3rem; padding-bottom: .2rem; font-size: .14rem;
+    a{color: #999}
+    a:hover{color: $color}
+  }
+  .back a{display: block; @include absolute($t:.53rem, $r:0); background: $color; color: #fff; @include radius(.5rem); font-size: .14rem; width: 1.32rem; height: .43rem; line-height: .43rem; text-align: center;
+    em{padding-right: .23rem; background: url("../image/img9.png") right center no-repeat; background-size: .09rem}
+  }
+}
+
+.case{padding-top: 1rem;
+  ul{@extend .flexWrap; margin-left: -.6rem}
+  li{width: 50%; padding: 0 0 .5rem .6rem}
+  a{display: block; position: relative; width: 100%; overflow: hidden; border-bottom: #bfbfbf solid 1px; text-align: center; color: #666;
+    .img{width: 100%; overflow: hidden; position: relative; @include radius(.08rem); @extend .transition;
+      &:before{@include before(); left: 0; top: 0; width: 100%; height: 100%; background: $color; opacity: 0}
+      em{display: block; @include absolute($l:50%, $t:50%); font-size: .24rem; color: $color; width: 2rem; height: .7rem; line-height: .7rem; text-align: center; background: #fff; @include radius(.5rem); margin-left: -1rem; margin-top: -.35rem; opacity: 0; @extend .transition}
+    }
+    .name{height: .7rem; line-height: .7rem; font-size: .24rem; @extend .ellipsis}
+  }
+  a:hover{background: #fff; border-color: rgba(0, 0, 0, 0); @include radiusRT(1.1rem); @include radiusLB(1.1rem); @include shadow(0 .24rem .65rem rgba(73, 73, 73, .18)); color: $color;
+    .img{@include radiusLB(1.1rem);
+      &:before{opacity: .7}
+      em{opacity: 1}
+    }
+    .name{font-weight: bold}
+  }
+}
+
+.pageNum{padding: .5rem 0 1rem 0; @extend .flex; @extend .justifyCenter; @extend .itemsCenter;
+  a{width: .31rem; height: .26rem; background: center no-repeat; background-size: 100%;
+    &.prev{background-image: url("../image/nimg31_1.png");
+      &:hover{background-image: url("../image/nimg31_1on.png")}
+    }
+    &.next{background-image: url("../image/nimg31_2.png");
+      &:hover{background-image: url("../image/nimg31_2on.png")}
+    }
+  }
+  div{width: .9rem; text-align: center; font-size: .3rem; color: #999;
+    em{color: $color}
+  }
+}
+
+.caseShow{padding-bottom: 1.15rem;
+  .title{text-align: center; padding-bottom: .55rem; font-size: .24rem; position: relative;
+    &:before{@include before(); left: 50%; bottom: .35rem; width: .48rem; height: .03rem; background: $color; margin-left: -.24rem}
+  }
+  .msg{text-align: center; font-size: .14rem; padding-bottom: .26rem; color: #666}
+  .info{padding-bottom: .2rem;
+    ul{@extend .flexWrap; margin-left: -.3rem}
+    li{width: 33.333%; padding: 0 0 .3rem .3rem;
+      div{@include radius(.06rem); line-height: .5rem; background: #eee; font-size: .14rem; color: #666; padding: 0 .18rem;
+        em{color: $color; padding-left: .18rem; background: url("../image/img8.png") left center no-repeat; background-size: .08rem}
+      }
+    }
+  }
+  .imgList{position: relative; padding: 0 .5rem; max-width: 10.65rem; margin: 0 auto}
+  .arrow{display: block; width: .24rem; height: .6rem; background: center no-repeat; background-size: 100%; @include absolute($t:50%); margin-top: -.3rem;
+    &.prev{left: 0; background-image: url("../image/nimg24_1.png");
+      &:hover{background-image: url("../image/nimg24_1on.png")}
+    }
+    &.next{right: 0; background-image: url("../image/nimg24_2.png");
+      &:hover{background-image: url("../image/nimg24_2on.png")}
+    }
+  }
+  .list-wrapper{width: 100%; overflow: hidden; position: relative; text-align: center;
+    img{@include radius(.08rem)}
+  }
+}
+
+.pageNum3{min-height: 2.15rem; border-top: #e8e8e8 solid 1px; position: relative; padding: .3rem 2.5rem .3rem 0; font-size: .14rem; color: #999;
+  li{line-height: .36rem; padding-bottom: .14rem;
+    a{color: #999;
+      &:hover{color: $color}
+    }
+  }
+  .share{@include absolute($t:.3rem, $r:-.1rem);
+    dl{@extend .flex; @extend .itemsCenter}
+    a{display: block; @include radius(50%); width: .36rem; height: .36rem; background: #8fccac; margin-right: .1rem;
+      &:hover{background: $color}
+    }
+  }
+  a.back{display: block; @include absolute($t:.86rem, $r:0); width: 1rem; height: .26rem; line-height: .24rem; text-align: center; border: $color solid 1px; font-size: .14rem; color: $color; @include radius(.5rem);
+    &:hover{color: #fff; background: $color}
+  }
+}
+
+.pageNav{height: 1.15rem;
+  .list{position: relative; z-index: 11; background: #fff; min-height: .88rem; top: -.44rem; @include radiusLT(.4rem); @include radiusRB(.4rem); @include shadow(0 .13rem .7rem rgba(31, 153, 90, .14))}
+  ul{@extend .flex}
+  li{width: 50%}
+  a{@extend .flex; @extend .itemsCenter; @extend .justifyCenter; height: .88rem; font-size: .14rem; color: #999;
+    .ico{width: .3rem; position: relative;
+      img:nth-child(2){@include absolute($l:0, $t:0); opacity: 0}
+    }
+    em{font-size: .18rem; padding: 0 .05rem 0 .1rem}
+  }
+  a:hover, a.on{color: $color;
+    .ico{
+      img:nth-child(1){opacity: 0}
+      img:nth-child(2){opacity: 1}
+    }
+  }
+}
+
+.news{
+  li{position: relative;
+    &:before{@include before(); left: 0; top: 100%; width: 100%; height: 1px; background: #e5e5e5}
+    &:last-child:before{display: none}
+  }
+  a{display: block; min-height: 2.4rem; position: relative; padding: .4rem .35rem .4rem 4.4rem; @include radius(.1rem);
+    .time{width: 1.32rem; @include absolute($l:0, $t:.8rem); text-align: center; font-size: .14rem; color: #888; font-family: 'IMPACT';
+      div{font-size: .48rem; font-weight: bold}
+    }
+    .img{width: 2.7rem; @include absolute($l:1.32rem, $t:.4rem); overflow: hidden}
+    .img2{position: absolute; top: 0; right: 0; height: 100%; width: 100%; background: right center no-repeat; background-size: auto 110%; @extend .transition; opacity: 0; @include radius(.1rem);
+      &:before{@include before(); left: 0; top: 0; width: 100%; height: 100%; background: url("../image/img1200_5.png") right center repeat-y; background-size: auto .1rem}
+    }
+    .name{font-size: .18rem; font-weight: bold; line-height: .52rem}
+    p{top: -.05rem; font-size: .14rem; line-height: .26rem; min-height: .65rem; padding-bottom: .15rem; color: #666; @extend .transition}
+    .more{@include radius(.5rem); border: $color solid 1px; width: 1.04rem; height: .28rem; line-height: .26rem; text-align: center; font-size: .14rem; color: $color;
+      &:hover{color: #fff; background: $color}
+    }
+    .name, p, .more{position: relative; z-index: 2}
+    .more, .time, &:after{@extend .transition}
+  }
+  li:hover{
+    &:before{opacity: 0}
+    a{z-index: 10; @include shadow(0 .13rem .43rem rgba(0, 0, 0, .1)); color: $color;
+      .time{color: $color}
+      .name, p{
+        em{color: $color}
+      }
+      .img2{opacity: .8}
+    }
+  }
+}
+
+.newShow{padding-bottom: .9rem;
+  h2.title{text-align: center; font-size: .24rem}
+  .time{@extend .flex; @extend .itemsCenter; @extend .justifyCenter; font-size: .14rem; color: #999; padding: .15rem 0 .3rem 0;
+    img{width: .16rem; margin-right: .1rem}
+  }
+  .content{font-size: .14rem; line-height: .28rem; text-align: justify; color: #666;
+    .img{text-align: center; padding: .25rem 0}
+  }
+}
+
+.contact_01{padding: 1rem 0; background: url("../image/img313.png") left 1rem no-repeat; background-size: 3.13rem;
+  .wal{@extend .flexWrap; @extend .itemsCenter; @extend .flexBetween}
+  .col{width: 5.2rem;
+    .title{@extend .flex; @extend .itemsCenter; padding-bottom: .55rem;
+      img{width: .64rem; margin-right: .1rem}
+      h2{font-size: .28rem; padding-bottom: .04rem}
+      p{font-size: .11rem; text-transform: uppercase}
+    }
+    .list{
+      li{position: relative; min-height: .9rem; padding-left: .72rem}
+      .img{width: .6rem; @include absolute($l:0, $t:0)}
+      h2{color: $color; font-size: .18rem; padding: .07rem 0 .04rem 0}
+      p{font-size: .16rem; color: #666}
+    }
+  }
+  .map{width: 6.41rem; height: 6rem}
+}
+
+.contact_02{background: url("../image/img1920_3.jpg") center no-repeat; background-size: cover; min-height: 8rem; padding: 1rem 0;
+  .pageTitle{height: 1.4rem; margin: 0 auto}
+  .form{
+    ul{@extend .flexWrap; margin-left: -.4rem}
+    li{width: 50%; padding: 0 0 .3rem .4rem; position: relative;
+      .ico{width: .21rem; @include absolute($l:.6rem, $t:.24rem);
+        img:nth-child(2){@include absolute($l:0, $t:0); opacity: 0}
+      }
+      .input{background: rgba(255, 255, 255, .6); min-height: .7rem; border: rgba(0, 0, 0, 0) solid 1px; @include radius(.06rem); @extend .transition;
+        input, textarea{width: 100%; height: .68rem; line-height: .68rem; padding-left: .5rem; font-size: .16rem; color: #999}
+        textarea{height: 1.8rem; line-height: .38rem; padding: .15rem .15rem .15rem .5rem}
+      }
+    }
+    li.li_01{width: 100%}
+    li.on{
+      .ico{
+        img:nth-child(1){opacity: 0}
+        img:nth-child(2){opacity: 1}
+      }
+      .input{border-color: $color;
+        input, textarea{color: $color}
+      }
+    }
+  }
+  .submit{padding-top: .2rem;
+    div{width: 1.6rem; height: .36rem; background: $color; @include radius(.5rem); margin: 0 auto}
+    input{width: 100%; height: .36rem; color: #fff; font-size: .14rem; cursor: pointer; letter-spacing: .02rem}
+  }
+}
+
+.job{padding: 1rem 0 .9rem 0;
+  li{padding-bottom: .2rem; min-height: 1rem; position: relative;
+    .title{@include absolute($l:0, $t:0); width: 100%; height: .8rem; line-height: .8rem; @include radius(.5rem); background: #f6f6f6; @extend .transition; color: #5b625e; cursor: pointer; @include radius(.08rem);
+      &:before{@include before(); top: 0; right: 0; height: 100%; width: 1rem; background: url("../image/nimg24_3.png") center no-repeat; background-size: .24rem}
+      h2{font-size: .24rem; padding-left: .5rem}
+      .address, .price{@extend .transition; font-size: .16rem; @include absolute($t:0)}
+      .price{left: 5.6rem}
+      .address{right: 0; width: 3.9rem; background: url("../image/nimg15_3.png") left center no-repeat; background-size: .15rem; padding-left: .26rem}
+    }
+    .box{background: #f6f6f6; display: none; @include radius(.4rem); padding: 1.1rem .6rem 0 .6rem;
+      .row{@extend .flexWrap; @extend .flexBetween;
+        .col{width: 5rem; padding-bottom: .2rem}
+        h5{padding-bottom: .1rem; color: $color; font-size: .18rem;
+          em{font-size: .14rem; font-weight: 400}
+        }
+        dd{font-size: .14rem; line-height: .24rem; color: #525c66; position: relative; padding: 0 0 .08rem .15rem;
+          &:before{@include before(); left: 0; top: 0; width: .06rem; height: .24rem; background: url("../image/img6.png") center no-repeat; background-size: 100%}
+        }
+      }
+      .info{border-top: #ddd solid 1px; padding-bottom: .1rem;
+        dl{@extend .flexWrap; @extend .flexBetween}
+        dd{@extend .flex; @extend .itemsCenter; font-size: .14rem; color: #525c66; height: .94rem}
+        img{width: .22rem; margin-right: .1rem}
+      }
+    }
+  }
+  li.on{
+    .title{background: $color; color: #fff; @include radiusLT(.4rem); @include radiusRB(.4rem);
+      &:before{background-image: url("../image/nimg24_3on.png")}
+      .address, .price{color: #fff}
+      .address{background-image: url("../image/nimg15_3on.png")}
+    }
+  }
+}
+
+
+
+
+
+
+
+
