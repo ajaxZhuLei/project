@@ -20,10 +20,14 @@ class IndexController extends HomeBaseController
         return $this->fetch(':index');
     }
 	public function add(){
-		$data = $this->request->post();	
-		if(empty($data['phone'])){
-			$this->error('请填写手机号码');
-		}
-		$this->success('添加成功',"",$data);
+		$data = $this->request->post();
+    	if(request()->isPost()){
+            if (db('tongji')->insert($data)) {
+            	$this->success('报名成功');
+            }else{
+            	$this->error('报名失败');
+            }
+            return;
+    	}
 	}
 }

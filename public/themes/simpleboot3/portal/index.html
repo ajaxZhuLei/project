@@ -20,7 +20,7 @@
     </div>
 </div>
 
-<form class="layui-form yang" action="">
+<form class="layui-form yang" action="register">
   <div class="layui-form-item">
     <label class="layui-form-label">姓名</label>
     <div class="layui-input-block">
@@ -28,27 +28,21 @@
     </div>
   </div>
   <div class="layui-form-item">
-    <label class="layui-form-label">手机号码</label>
-    <div class="layui-input-inline">
-      <input type="text" name="phone" required lay-verify="required" placeholder="请输入手机号" autocomplete="off" class="layui-input">
-    </div>
-  </div>
-  <div class="layui-form-item">
     <label class="layui-form-label">请选择科室</label>
     <div class="layui-input-block">
       <select name="department" lay-verify="required">
         <option value=""></option>
-        <option value="0">科室1</option>
-        <option value="1">科室2</option>
-        <option value="2">科室3</option>
+        <option value="科室1">科室1</option>
+        <option value="科室2">科室2</option>
+        <option value="科室3">科室3</option>
       </select>
     </div>
   </div>
   <div class="layui-form-item">
     <label class="layui-form-label can">是否在公司就餐</label>
     <div class="layui-input-block">
-      <input type="radio" name="is_in" value="是" title="是">
-      <input type="radio" name="is_in" value="否" title="否" checked>
+      <input type="radio" name="is_in" value="是" title="是" checked>
+      <input type="radio" name="is_in" value="否" title="否">
     </div>
   </div>
   <div class="layui-form-item">
@@ -69,19 +63,21 @@ layui.use('form', function(){
   //监听提交
   form.on('submit(formDemo)', function(data){
     var form = data.field;
-	$.post("{:url('portal/index/add')}",form,function(data){
-		if(data.code == '0'){
-			layer.msg(data.msg, {icon: 5});
-		}else if(data.code == '1'){
-			layer.msg(data.msg, {icon: 1});
-		}else{
-			layer.msg('提交异常，请联系管理员', {icon: 5});
-		}
-	});
+  $.post("{:url('portal/index/add')}",form,function(data){
+    if(data.code == '0'){
+      layer.msg(data.msg, {icon: 5});
+    }else if(data.code == '1'){
+      layer.msg(data.msg, {icon: 1});
+    }else{
+      layer.msg('提交异常，请联系管理员', {icon: 5});
+    }
+  });
+    location.reload();
     return false;
   });
 });
 </script>
+
 
 <style type="text/css">
   .layui-form-label{width: 100px;}
