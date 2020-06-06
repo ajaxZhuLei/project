@@ -1,0 +1,18 @@
+/* addBy xzz self */
+.page a, .page span {
+    float: left;
+    margin-left: -1px;
+    padding: 0 14px;
+    height: 30px;
+    line-height: 30px;
+  	    color: #686868;
+   	border: 1px solid #CCCCCC;
+}
+.page .current {
+    border-bottom: 3px solid #4BBD00;
+    height: 28px;
+    line-height: 26px;
+}
+.page .rows {
+    border-right: 1px solid #CCCCCC;
+}

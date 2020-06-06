@@ -1,0 +1,49 @@
+<include file="public@header" />
+</head>
+<body>
+	<div class="wrap js-check-wrap">
+		<ul class="nav nav-tabs">
+			<li class="active"><a href="{:url('Statistics/list1')}">天数统计</a></li>
+			<li><a href="{:url('Statistics/listMonth')}">月度统计</a></li>
+			<li><a href="{:url('Statistics/listYear')}">年度统计</a></li>
+		</ul>
+		<br/>
+        <form class="well form-inline margin-top-20" method="get" action="{:url('User/index')}" style="display:none;">
+            时间	:
+            <input type="text" class="form-control" name="user_email" style="width: 160px;" value="{:input('request.user_email/s','')}" placeholder="请输入就餐时间">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+			科室	:
+            <input type="text" class="form-control" name="user_email" style="width: 160px;" value="{:input('request.user_email/s','')}" placeholder="请输入就餐科室">
+            <input type="submit" class="btn btn-primary" value="搜索" />
+            <a class="btn btn-danger" href="{:url('User/index')}">清空</a>
+        </form>
+		<table class="table table-hover table-bordered">
+			<thead>
+				<tr>
+					<th width="100px;">时间</th>
+					<th width="100px;">就餐人数</th>
+					<th width="100px;">就餐类型</th>
+					<th>科室人数</th>
+					<th width="140">{:lang('ACTIONS')}</th>
+				</tr>
+			</thead>
+			<tbody>
+				<foreach name="list" item="v">
+					<tr>
+						<td>{$v.time}</td>
+						<td>{$v.count}</td>
+						<td>{$v['type']=="1"?"中餐":"晚餐"}</td>
+						<td>
+						<foreach name="v.department" item="val">
+							<label>{$val.department}:（{$val.count}人）</label>
+						</foreach>
+						</td>
+						<td width="140">{:lang('ACTIONS')}</td>
+					</tr>
+				</foreach>
+			</tbody>
+		</table>
+		<div class="pagination">{$page}</div>
+	</div>
+	<script src="__STATIC__/js/admin.js"></script>
+</body>
+</html>

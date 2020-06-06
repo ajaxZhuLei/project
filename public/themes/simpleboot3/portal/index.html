@@ -63,17 +63,17 @@ layui.use('form', function(){
   //监听提交
   form.on('submit(formDemo)', function(data){
     var form = data.field;
-  $.post("{:url('portal/index/add')}",form,function(data){
-    if(data.code == '0'){
-      layer.msg(data.msg, {icon: 5});
-    }else if(data.code == '1'){
-      layer.msg(data.msg, {icon: 1});
-    }else{
-      layer.msg('提交异常，请联系管理员', {icon: 5});
-    }
-  });
-    location.reload();
-    return false;
+	  $.post("{:url('portal/index/add')}",form,function(data){
+		if(data.code == '0'){
+		  layer.msg(data.msg, {icon: 5});
+		}else if(data.code == '1'){
+		  layer.msg(data.msg, {icon: 1});
+		}else{
+		  layer.msg('提交异常，请联系管理员', {icon: 5});
+		}
+	  });
+	  location.reload();
+	  return false;
   });
 });
 </script>
